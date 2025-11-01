@@ -204,10 +204,40 @@ footer {
   font-size: 0.9rem;
 }
 
-/* --- Placeholder for spooky animations --- */
-/* You can add:
-         - floating ghosts
-         - fog overlay
-         - parallax background
-         - sound toggles
-      */
+/* --- spooky animations --- */
+#spooky-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: var(--highlight);
+  color: #0b0a0f;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  font-family: "Lacquer", system-ui;
+  font-size: 1.2rem;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(167, 123, 255, 0.6);
+  transition: transform 0.5s ease;
+}
+
+#spooky-popup.show {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* glitch */
+@keyframes glitch {
+  0% { transform: translate(0,0); }
+  20% { transform: translate(-2px,2px); }
+  40% { transform: translate(2px,-2px); }
+  60% { transform: translate(-2px,-2px); }
+  80% { transform: translate(2px,2px); }
+  100% { transform: translate(0,0); }
+}
+
+button.glitch {
+  animation: glitch 0.5s ease-in-out;
+}
+
+

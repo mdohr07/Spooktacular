@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Crimson+Text&display=swap"
         rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -112,6 +115,28 @@
             });
         });
 
+        const form = document.querySelector("form");
+
+        //Dialog
+        const popup = document.createElement("div");
+        popup.id = "spooky-popup";
+        popup.textContent = "You fell for the trap, flesh-bag! Now you are haunted, hahahaha! 👻"
+        document.body.appendChild(popup);
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            popup.classList.add("show");
+
+            setTimeout(() => {
+                popup.classList.remove("show");
+            }, 3000);
+
+            form.querySelector("button").classList.add("glitch");
+            setTimeout(() => {
+                form.querySelector("button").classList.remove("glitch");
+            }, 500)
+        });
 
     </script>
 </body>
