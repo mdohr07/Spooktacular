@@ -33,20 +33,22 @@
         <div class="locations">
             <div class="location-card">
                 <h3>Whispering Cemetery</h3>
-                <p>Ideal for introverted spirits seeking peace and subtle dread. Excellent echo acoustics for long moans.</p>
+                <p>Ideal for introverted spirits seeking peace and subtle dread. Excellent echo acoustics for long
+                    moans.</p>
                 <section class="locationImage-cemetery"></section>
                 <section class="summary">Exorcism risk: Very low</section>
             </div>
             <div class="location-card">
                 <h3>Teenage House Party</h3>
-                <p>Perfect for loud hauntings and chaotic energy. Expect high scream potential and plenty of selfie victims.</p>
-                 <section class="locationImage-party"></section>
+                <p>Perfect for loud hauntings and chaotic energy. Expect high scream potential and plenty of selfie
+                    victims.</p>
+                <section class="locationImage-party"></section>
                 <section class="summary">Exorcism risk: Low</section>
             </div>
             <div class="location-card">
                 <h3>Old Victorian Mansion (still inhabited)</h3>
                 <p>Classic haunt venue. A timeless favorite among traditional spirits.</p>
-                 <section class="locationImage-mansion"></section>
+                <section class="locationImage-mansion"></section>
                 <section class="summary">Exorcism risk: Depends on the cat.</section>
             </div>
         </div>
@@ -90,6 +92,27 @@
            - Easter egg on pumpkin click
            - Scroll-triggered fog or parallax
         */
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollLinks = document.querySelectorAll('a[href^="#"]');
+
+            scrollLinks.forEach(link => {
+                link.addEventListener("click", e => {
+                    const targetId = link.getAttribute("href");
+                    const target = document.querySelector(targetId);
+
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+                    }
+                });
+            });
+        });
+
+
     </script>
 </body>
 
