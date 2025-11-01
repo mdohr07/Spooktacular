@@ -19,7 +19,10 @@
   <source src="/audio/horror-free-427057.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
-
+<audio id="metalGhost">
+  <source src="/audio/Metal Ghost - QuickSounds.com.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
     <section id="soundToggle">
         Sound on?
@@ -138,11 +141,16 @@
         popup.textContent = "You fell for the trap, flesh-bag! Now you are haunted, hahahaha! 👻"
         document.body.appendChild(popup);
 
+        const ghostSound = document.getElementById("metalGhost");
+
         form.addEventListener("submit", (e) => {
             e.preventDefault();
 
             popup.classList.add("show");
 
+            ghostSound.currentTime = 0;
+            ghostSound.play().catch(err => console.log("Audio blocked:", err));
+            
             setTimeout(() => {
                 popup.classList.remove("show");
             }, 3500);
