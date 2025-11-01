@@ -16,13 +16,17 @@
 
 <body>
     <audio id="backgroundAudio" loop>
-  <source src="/audio/horror-free-427057.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-<audio id="metalGhost">
-  <source src="/audio/Metal Ghost - QuickSounds.com.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+        <source src="/audio/horror-free-427057.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="metalGhost">
+        <source src="/audio/Metal Ghost - QuickSounds.com.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="wooshSound">
+        <source src="/audio/Reverse Surreal Whisper 6 - QuickSounds.com.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <section id="soundToggle">
         Sound on?
@@ -105,15 +109,6 @@
     </footer>
 
     <script>
-        /* === Placeholder for your spooky JS magic ===
-           Ideas:
-           - Floating ghost cursor
-           - Ambient background sounds (toggle)
-           - Countdown timer
-           - Easter egg on pumpkin click
-           - Scroll-triggered fog or parallax
-        */
-
         document.addEventListener("DOMContentLoaded", () => {
             const scrollLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -121,6 +116,11 @@
                 link.addEventListener("click", e => {
                     const targetId = link.getAttribute("href");
                     const target = document.querySelector(targetId);
+
+                    const wooshSound = document.getElementById("wooshSound");
+
+                    wooshSound.currentTime = 0;
+                    wooshSound.play().catch(err => console.log("Audio blocked:", err));
 
                     if (target) {
                         e.preventDefault();
@@ -138,7 +138,7 @@
         //Dialog
         const popup = document.createElement("div");
         popup.id = "spooky-popup";
-        popup.textContent = "You fell for the trap, flesh-bag! Now you are haunted, hahahaha! 👻"
+        popup.textContent = "You fell for the trap, flesh-bag! Now you are haunted. FOREVER! 👻"
         document.body.appendChild(popup);
 
         const ghostSound = document.getElementById("metalGhost");
@@ -150,7 +150,7 @@
 
             ghostSound.currentTime = 0;
             ghostSound.play().catch(err => console.log("Audio blocked:", err));
-            
+
             setTimeout(() => {
                 popup.classList.remove("show");
             }, 3500);

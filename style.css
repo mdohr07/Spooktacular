@@ -59,7 +59,14 @@ header p {
   color: var(--muted);
 }
 
+#about h2 {
+  border-top: solid 1px var(--accent);
+  margin-top: 4px;
+  padding-top: 1.5rem;
+}
+
 #about {
+  border-top: solid 1px var(--accent);
   border-bottom: solid 1px var(--accent);
   padding: 0;
 }
