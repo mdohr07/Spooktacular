@@ -15,14 +15,19 @@
 </head>
 
 <body>
+    <audio id="backgroundAudio" loop>
+  <source src="/audio/horror-free-427057.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
     <section id="soundToggle">
-        Sound on
+        Sound on?
 
         <label class="switch">
             <input type="checkbox">
             <span class="slider round"></span>
         </label>
-
     </section>
 
     <header>
@@ -89,7 +94,7 @@
 
             <button type="submit" class="btn submit">Submit Summoning</button>
         </form>
-        <!-- TODO: Add spooky form success animation -->
+
     </section>
 
     <footer>
@@ -147,6 +152,18 @@
                 form.querySelector("button").classList.remove("glitch");
             }, 500)
         });
+
+        const audio = document.getElementById("backgroundAudio");
+
+        const toggle = document.querySelector("#soundToggle input[type='checkbox']");
+
+        toggle.addEventListener("change", () => {
+            if (toggle.checked) {
+                audio.play().catch(err => console.log("Autoplay blocked:", err));
+            } else {
+                audio.pause();
+            }
+        })
 
     </script>
 </body>
