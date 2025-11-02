@@ -3,7 +3,7 @@
 A spooky little landing page for the dev.to frontend challenge.  
 Built for fun — no souls were *knowingly* harmed in the making of this site.
 
----
+<img src="https://github.com/mdohr07/Spooktacular/blob/main/preview.png">
 
 ## 🕯️ About
 
